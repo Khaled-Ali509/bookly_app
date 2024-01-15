@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'best_seller_item.dart';
+
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: 5,
-        itemBuilder: (context , index)
-        {
-          return const BestSellerItem();
-        }
-    );
+        itemBuilder: (context, index) {
+          return const Padding(
+            padding:  EdgeInsets.only(right: 50.0),
+            child:  BestSellerItem(),
+          );
+        });
   }
 }

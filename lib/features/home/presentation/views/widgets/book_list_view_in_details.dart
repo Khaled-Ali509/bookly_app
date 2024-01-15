@@ -7,21 +7,22 @@ class BookListInDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      height: MediaQuery.of(context).size.height *.15,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .15,
       child: ListView.builder(
           itemCount: 5,
           scrollDirection: Axis.horizontal,
-          itemBuilder: (context , index)
-          {
-            return  Padding(
-              padding:  const EdgeInsets.only(
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(
                 right: 5.0,
               ),
-              child:  CustomBookItem(borderRadius: BorderRadius.circular(11.0),),
+              child: CustomBookItem(
+                borderRadius: BorderRadius.circular(11.0),
+              ),
             );
-          }
-      ),
-    );;
+          }),
+    );
+
   }
 }

@@ -19,7 +19,6 @@ class BestSellerItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(
             bottom: 20.0,
-          right: 50.0
         ),
         child: SizedBox(
           height: 105.0,
