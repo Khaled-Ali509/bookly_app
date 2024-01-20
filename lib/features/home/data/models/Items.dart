@@ -3,8 +3,7 @@ import 'SaleInfo.dart';
 import 'AccessInfo.dart';
 import 'SearchInfo.dart';
 
-class Items {
-
+class BookItems {
   String? kind;
   String? id;
   String? etag;
@@ -14,17 +13,23 @@ class Items {
   AccessInfo? accessInfo;
   SearchInfo? searchInfo;
 
-  Items.fromJson(dynamic json) {
+  BookItems.fromJson(dynamic json) {
     kind = json['kind'];
     id = json['id'];
     etag = json['etag'];
     selfLink = json['selfLink'];
-    volumeInfo = json['volumeInfo'] != null ? VolumeInfo.fromJson(json['volumeInfo']) : null;
-    saleInfo = json['saleInfo'] != null ? SaleInfo.fromJson(json['saleInfo']) : null;
-    accessInfo = json['accessInfo'] != null ? AccessInfo.fromJson(json['accessInfo']) : null;
-    searchInfo = json['searchInfo'] != null ? SearchInfo.fromJson(json['searchInfo']) : null;
+    volumeInfo = json['volumeInfo'] != null
+        ? VolumeInfo.fromJson(json['volumeInfo'])
+        : null;
+    saleInfo =
+        json['saleInfo'] != null ? SaleInfo.fromJson(json['saleInfo']) : null;
+    accessInfo = json['accessInfo'] != null
+        ? AccessInfo.fromJson(json['accessInfo'])
+        : null;
+    searchInfo = json['searchInfo'] != null
+        ? SearchInfo.fromJson(json['searchInfo'])
+        : null;
   }
-
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -46,5 +51,4 @@ class Items {
     }
     return map;
   }
-
 }

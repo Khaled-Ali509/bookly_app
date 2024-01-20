@@ -4,7 +4,7 @@ class BookModel {
 
   String? kind;
   int? totalItems;
-  List<Items>? items;
+  List<BookItems>? items;
 
 
   BookModel.fromJson(dynamic json) {
@@ -13,7 +13,7 @@ class BookModel {
     if (json['items'] != null) {
       items = [];
       json['items'].forEach((v) {
-        items?.add(Items.fromJson(v));
+        items?.add(BookItems.fromJson(v));
       });
     }
   }
