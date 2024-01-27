@@ -9,7 +9,7 @@ class BookModel {
     id = json['id'];
     etag = json['etag'];
     selfLink = json['selfLink'];
-    volumeInfo = json['volumeInfo'] != null ? VolumeInfo.fromJson(json['volumeInfo']) : null;
+    volumeInfo =  VolumeInfo.fromJson(json['volumeInfo']);
     saleInfo = json['saleInfo'] != null ? SaleInfo.fromJson(json['saleInfo']) : null;
     accessInfo = json['accessInfo'] != null ? AccessInfo.fromJson(json['accessInfo']) : null;
   }
@@ -17,7 +17,7 @@ class BookModel {
   String? id;
   String? etag;
   String? selfLink;
-  VolumeInfo? volumeInfo;
+ late VolumeInfo volumeInfo;
   SaleInfo? saleInfo;
   AccessInfo? accessInfo;
 
@@ -27,9 +27,7 @@ class BookModel {
     map['id'] = id;
     map['etag'] = etag;
     map['selfLink'] = selfLink;
-    if (volumeInfo != null) {
-      map['volumeInfo'] = volumeInfo?.toJson();
-    }
+      map['volumeInfo'] = volumeInfo.toJson();
     if (saleInfo != null) {
       map['saleInfo'] = saleInfo?.toJson();
     }
