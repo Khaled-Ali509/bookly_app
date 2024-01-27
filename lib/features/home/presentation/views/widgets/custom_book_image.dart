@@ -3,10 +3,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage(
-      {Key? key, required this.borderRadius, required this.imageUrl})
-      : super(key: key);
-  final BorderRadius borderRadius;
+   CustomBookImage({Key? key, required this.imageUrl}) : super(key: key);
+  final BorderRadius borderRadius = BorderRadius.circular(16.0);
   final String imageUrl;
 
   @override
@@ -18,7 +16,7 @@ class CustomBookImage extends StatelessWidget {
         child: CachedNetworkImage(
           fit: BoxFit.fill,
           imageUrl: imageUrl,
-          errorWidget: (context , url , error )=>const Icon(Icons.error_outline) ,
+          errorWidget: (context, url, error) => const Icon(Icons.error_outline),
         ),
       ),
     );

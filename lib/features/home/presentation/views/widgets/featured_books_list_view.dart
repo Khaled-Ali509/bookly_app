@@ -26,7 +26,6 @@ class FeaturedBooksListView extends StatelessWidget {
                       right: 15.0,
                     ),
                     child: CustomBookImage(
-                      borderRadius: BorderRadius.circular(16.0),
                       imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail!,
                     ),
                   );
