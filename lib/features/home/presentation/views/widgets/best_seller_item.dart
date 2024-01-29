@@ -48,7 +48,6 @@ class BestSellerItem extends StatelessWidget {
                         style: Styles.textStyle20.copyWith(
                           fontFamily: kGtSectraFine,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ),
                     const SizedBox(
