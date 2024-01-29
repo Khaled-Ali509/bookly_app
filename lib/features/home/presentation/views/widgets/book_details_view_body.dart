@@ -1,14 +1,15 @@
+import 'package:bookly_app/features/home/data/models/Book_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styls.dart';
-import 'book_list_view_in_details.dart';
+import 'similar_books_list_view.dart';
 import 'book_rating.dart';
 import 'custom_book_app_bar.dart';
 import 'custom_book_image.dart';
 import 'books_action.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({Key? key}) : super(key: key);
-
+  const BookDetailsViewBody({Key? key, required this.bookModel}) : super(key: key);
+final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -31,14 +32,14 @@ class BookDetailsViewBody extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * .23),
                   child: CustomBookImage(
-                    imageUrl: 'https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2023/10/free-images.jpg',
+                    imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
                   ),
                 ),
                 const SizedBox(
                   height: 45.0,
                 ),
                 Text(
-                  'The Jungle Book',
+                  bookModel.volumeInfo.title!,
                   style:
                       Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
                 ),
@@ -48,7 +49,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 Opacity(
                   opacity: .7,
                   child: Text(
-                    'Rudyard Kipling',
+                    bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle18.copyWith(
                       fontStyle: FontStyle.italic,
                     ),
@@ -78,7 +79,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const BookListInDetails(),
+                const SimilarBooksListView(),
                 const SizedBox(
                   height: 40,
                 ),

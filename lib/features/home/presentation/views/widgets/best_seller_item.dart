@@ -16,7 +16,10 @@ class BestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push('/bookDetailsView');
+        GoRouter.of(context).push(
+          '/bookDetailsView',
+          extra: bookModel,
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(
@@ -45,13 +48,14 @@ class BestSellerItem extends StatelessWidget {
                         style: Styles.textStyle20.copyWith(
                           fontFamily: kGtSectraFine,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                     const SizedBox(
                       height: 2,
                     ),
-                     Text(
-                      bookModel.volumeInfo.authors![0],
+                    Text(
+                      bookModel.volumeInfo.authors?[0] ?? '',
                       style: Styles.textStyle14,
                     ),
                     Row(

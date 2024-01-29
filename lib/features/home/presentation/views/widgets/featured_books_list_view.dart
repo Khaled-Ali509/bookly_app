@@ -3,6 +3,7 @@ import 'package:bookly_app/core/widgets/custom_progress_indicator.dart';
 import 'package:bookly_app/features/home/presentation/manger/featured_cubit/featured_book_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'custom_book_image.dart';
 
@@ -25,8 +26,17 @@ class FeaturedBooksListView extends StatelessWidget {
                     padding: const EdgeInsets.only(
                       right: 15.0,
                     ),
-                    child: CustomBookImage(
-                      imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail! ?? '',
+                    child: GestureDetector(
+                      onTap: ()
+                      {
+                        GoRouter.of(context).push(
+                          '/bookDetailsView',
+                          extra:state.books[index],
+                        );
+                      },
+                      child: CustomBookImage(
+                        imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail! ?? '',
+                      ),
                     ),
                   );
                 }),
