@@ -64,7 +64,7 @@ final BookModel bookModel;
                 const SizedBox(
                   height: 37.0,
                 ),
-                const BooksAction(),
+                BooksAction(bookModel: bookModel,),
                 const Expanded(
                     child: SizedBox(
                   height: 47,
